@@ -4,9 +4,8 @@
 What is an API? An interface designed to connect different systems.
 
 Our API is very easy to use and allows external software to connect and create deliveries automatically.
-Using the API is at no extra charge out of our belief in an open model, and we encourage our customers to automate as much as possible.
 
-This technical documentation is intended for developers who want to create a sneak peek into the LionWheel system and create deliveries automatically.
+This technical documentation is intended for developers who want to create tasks and interact with LionWheel system.
 
 **For any questions or problems you can contact help at support@lionwheel.com**
 
