@@ -5,16 +5,16 @@ What is an API? An interface designed to connect different systems.
 
 Our API is very easy to use and allows external software to connect and create deliveries automatically.
 
-This technical documentation is intended for developers who want to create tasks and interact with LionWheel system.
+This technical documentation is intended for developers who want to create tasks and interact with [LionWheel](https://www.lionwheel.com).
 
 **For any questions or problems you can contact help at support@lionwheel.com**
 
 ## Introduction
 
-* All interface calls will be in the https protocol.
-* The body of all readings and answers will be in json format.
-* The dates will appear in dd / mm / yyyy format.
-* All interface calls will be with a token that will be used to identify and associate with the correct shipping company and customer.
+* All interface calls are in the https protocol.
+* The body of all requests and responses are json format.
+* The dates are in dd / mm / yyyy format.
+* All interface calls are authenticated with that will is used to identify and associate the request to the correct customer.
 
 It is important to note that there are two types of calls (with two different types of tokens):
 Interface of the shipping company - will be used by the shipping company to create deliveries for their customers.
