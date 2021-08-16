@@ -13,7 +13,7 @@ This technical documentation is intended for developers who want to create tasks
 
 * All interface calls are in the https protocol.
 * The body of all requests and responses are json format.
-* The dates are in dd / mm / yyyy format.
+* The dates are in dd/mm/yyyy format.
 * All interface calls are authenticated with that will is used to identify and associate the request to the correct customer.
 
 It is important to note that there are two types of calls (with two different types of tokens):
