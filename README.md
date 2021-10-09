@@ -79,6 +79,7 @@ gifter_phone | string |
 is_roundtrip | boolean | 
 packages_quantity | integer | 
 money_collect | integer | amount in cents, $3 should be 300
+is_self_pickup | boolean
 line_items | json | Json of the content of the task <br> Supported fields: <br> name - string <br> quantity - string <br> sku - string <br> price - string <br> weight - string <br> variant - string <br> notes - string <br> `[{"name":"orange","quantity":"6", "price": "11.99"}, {"name":"apple","quantity":"8", "price": "10.99"}]`
 
 ### The response
