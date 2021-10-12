@@ -124,6 +124,32 @@ company_id | integer | the company id to which the task should be associated
 status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5
 driver_id | integer | assigned driver
 
+## Assign driver
+### The request
+Method: POST
+
+Url: https://members.lionwheel.com/api/v1/tasks/assign_driver
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+id | integer | task id
+driver_id | integer |
+
+## Optimize daily route
+### The request
+Method: POST
+
+Url: https://members.lionwheel.com/api/v1/drivers/optimize_daily_route
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+id | integer | driver id
+date | DateTime | route date (defaults to the current day)
+
 ## Tests and SandBox
 
 A testing environment can be requested from support@lionwheel.com
