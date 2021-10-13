@@ -128,7 +128,7 @@ driver_id | integer | assigned driver
 ### The request
 Method: POST
 
-Url: https://members.lionwheel.com/api/v1/tasks/assign_driver
+Url: https://members.lionwheel.com/api/v1/tasks/assign_driver?key=XXXXXX
 
 Payload - json
 
@@ -141,7 +141,7 @@ driver_id | integer |
 ### The request
 Method: POST
 
-Url: https://members.lionwheel.com/api/v1/drivers/optimize_daily_route
+Url: https://members.lionwheel.com/api/v1/drivers/optimize_daily_route?key=XXXXXX
 
 Payload - json
 
