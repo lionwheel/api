@@ -126,15 +126,14 @@ driver_id | integer | assigned driver
 
 ## Assign driver
 ### The request
-Method: POST
+Method: PUT
 
-Url: https://members.lionwheel.com/api/v1/tasks/assign_driver?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/tasks/<task_id>/update?key=XXXXXX
 
 Payload - json
 
 Field name | type | description
 ------------ | ------------- | -------------
-id | integer | task id
 driver_id | integer |
 
 ## Optimize daily route
