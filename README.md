@@ -124,7 +124,7 @@ company_id | integer | the company id to which the task should be associated
 status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
 driver_id | integer | assigned driver
 
-## Assign driver
+## Update Task
 ### The request
 Method: PUT
 
@@ -134,19 +134,19 @@ Payload - json
 
 Field name | type | description
 ------------ | ------------- | -------------
-driver_id | integer |
+driver_id | integer | driver that is assigned on the task
+pickup_at | date | date of the task
 
 ## Optimize daily route
 ### The request
 Method: POST
 
-Url: https://members.lionwheel.com/api/v1/drivers/optimize_daily_route?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/drivers/<driver_id>/optimize_daily_route?key=XXXXXX
 
 Payload - json
 
 Field name | type | description
 ------------ | ------------- | -------------
-id | integer | driver id
 date | DateTime | route date (defaults to the current day)
 
 ## Tests and SandBox
