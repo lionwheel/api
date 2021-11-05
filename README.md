@@ -161,12 +161,6 @@ Payload - json
 #### Success
 Status: 200
 
-Payload - json
-
-Field name | type | description
------------- | ------------- | -------------
-id | integer | visit id
-
 ## Update Visit
 ### The request
 Method: PUT
@@ -177,7 +171,6 @@ Payload - json
 
 Field name | type | description
 ------------ | ------------- | -------------
-id | integer | visit id
 driver_id | integer | driver that is assigned on the visit
 visit_at | date | date of the visit
 
