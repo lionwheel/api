@@ -153,7 +153,7 @@ date | DateTime | route date (defaults to the current day)
 ### The request
 Method: GET
 
-Url: https://members.lionwheel.com/api/v1/visits/<id>?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/visits/<visit_id>?key=XXXXXX
 
 Payload - json
 
@@ -165,7 +165,7 @@ Status: 200
 ### The request
 Method: PUT
 
-Url: https://members.lionwheel.com/api/v1/visits/<id>?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/visits/<visit_id>?key=XXXXXX
 
 Payload - json
 
