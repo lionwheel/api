@@ -149,6 +149,38 @@ Field name | type | description
 ------------ | ------------- | -------------
 date | DateTime | route date (defaults to the current day)
 
+## Receiving visit
+### The request
+Method: GET
+
+Url: https://members.lionwheel.com/api/v1/visits/<id>?key=XXXXXX
+
+Payload - json
+
+### The response 
+#### Success
+Status: 200
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+id | integer | visit id
+
+## Update Visit
+### The request
+Method: PUT
+
+Url: https://members.lionwheel.com/api/v1/visits/<id>?key=XXXXXX
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+id | integer | visit id
+driver_id | integer | driver that is assigned on the visit
+visit_at | date | date of the visit
+
 ## Tests and SandBox
 
 A testing environment can be requested from support@lionwheel.com
