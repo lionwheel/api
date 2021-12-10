@@ -63,6 +63,8 @@ source_notes | string |
 source_recipient_name | string | 
 source_phone | string | 
 source_email | string |
+source_latitude | float | providing it will override address geolocation
+source_longitude | float | providing it will override address geolocation
 **destination_city** | string |
 **destination_street** | string |
 **destination_number** | string |
@@ -72,6 +74,8 @@ destination_notes | string |
 **destination_recipient_name** | string |
 **destination_phone** | string |
 destination_email | string | 
+destination_latitude | float | providing it will override address geolocation
+destination_longitude | float | providing it will override address geolocation
 delivery_method | string | 
 greeting | string | 
 gifter_name | string | 
