@@ -57,6 +57,7 @@ notes | string | general delivery notes
 source_city | string | 
 source_street | string | 
 source_number | string | 
+source_zip_code | string |  zip or postal code
 source_floor | string | 
 source_apartment | string | 
 source_notes | string | 
@@ -68,6 +69,7 @@ source_longitude | float | providing it will override address geolocation
 **destination_city** | string |
 **destination_street** | string |
 **destination_number** | string |
+destination_zip_code | string | zip or postal code
 destination_floor | string |
 destination_apartment | string |
 destination_notes | string |
