@@ -89,7 +89,7 @@ is_self_pickup | boolean
 earliest | Time | earliest bound of time window
 latest | Time | latest bound of time window
 line_items | json | Json of the content of the task <br> Supported fields: <br> name - string <br> quantity - string <br> sku - string <br> price - string <br> weight - string <br> variant - string <br> notes - string <br> `[{"name":"orange","quantity":"6", "price": "11.99"}, {"name":"apple","quantity":"8", "price": "10.99"}]`
-status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
+urgency | integer | REGULAR: 0 <br> URGENT: 1 <br> SUPER_URGENT: 2
 
 
 ### The response
