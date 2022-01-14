@@ -146,6 +146,7 @@ Field name | type | description
 ------------ | ------------- | -------------
 driver_id | integer | driver that is assigned on the task
 pickup_at | date | date of the task
+status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
 
 ## Optimize daily route
 ### The request
