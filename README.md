@@ -149,6 +149,18 @@ driver_id | integer | driver that is assigned on the task
 pickup_at | date | date of the task
 status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
 
+## Daily route
+### The request
+Method: GET
+
+Url: https://members.lionwheel.com/api/v1/drivers/<driver_id>/daily_route?key=XXXXXX
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+date | DateTime | route date (defaults to the current day)
+
 ## Optimize daily route
 ### The request
 Method: POST
