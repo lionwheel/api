@@ -103,6 +103,7 @@ Field name | type | description
 ------------ | ------------- | -------------
 task_id | integer | LionWheel's task id
 public_id | string | task's public id that can be searched by the end user
+original_order_id | string | id in external system
 destination_region_str | string | task's destination region
 label | string | task's printable label
 barcode | string | task's barcode
