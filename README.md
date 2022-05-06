@@ -75,6 +75,7 @@ destination_apartment | string |
 destination_notes | string |
 **destination_recipient_name** | string |
 **destination_phone** | string |
+destination_phone2 | string |
 destination_email | string | 
 destination_latitude | float | providing it will override address geolocation
 destination_longitude | float | providing it will override address geolocation
