@@ -50,7 +50,7 @@ Fields in bold are mandatory
 
 Field name | type | description
 ------------ | ------------- | -------------
-**pickup_at** | DateTime | delivery date (defaults to the current day)
+**pickup_at** | Date | delivery date (defaults to the current day)
 company_id | integer | the company id to which the task should be associated
 notes | string | general delivery notes
 **original_order_id** | string | id in external system, should be unique
