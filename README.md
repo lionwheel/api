@@ -110,6 +110,7 @@ original_order_id | string | id in external system
 destination_region_str | string | task's destination region
 label | string | task's printable label
 barcode | string | task's barcode
+tracking_link | string | url of delivery's tracking page
 
 #### Failure
 Status: 401 - authentication error
