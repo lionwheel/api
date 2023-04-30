@@ -137,7 +137,7 @@ task_id | integer |
 pickup_at | DateTime | delivery_date (defaults to the current day)
 created_at | DateTime | creation datetime
 company_id | integer | the company id to which the task should be associated 
-status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
+status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> IN_INVENTORY: 6<br> OUT_INVENTORY: 7 <br> FAILED: 8
 driver_id | integer | assigned driver
 
 ## Update Task
