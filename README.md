@@ -73,6 +73,8 @@ destination_zip_code | string | zip or postal code
 destination_floor | string |
 destination_apartment | string |
 destination_notes | string |
+destination_entrance | string |
+destination_entrance_code | string |
 **destination_recipient_name** | string |
 **destination_phone** | string |
 destination_phone2 | string |
