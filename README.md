@@ -216,6 +216,9 @@ There you will need to provide:
 2. Statuses - the statuses to which you would like to subscribe
 
 Method: POST
+
+Url: As provided in settings section
+
 Payload - json. The structure of the request payload will be exactly as the in the delivery creation call above.
 
 ## Tests and SandBox
