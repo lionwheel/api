@@ -208,6 +208,7 @@ driver_id | integer | driver that is assigned on the visit
 visit_at | date | date of the visit
 
 ## Webhooks and callbacks
+Method: PUT
 You can set up a webhook to get updates of deliveries status changes.
 In order to so, please login to the system and go to:
 https://members.lionwheel.com/organization/edit?tab=api
