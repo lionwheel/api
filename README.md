@@ -208,7 +208,6 @@ driver_id | integer | driver that is assigned on the visit
 visit_at | date | date of the visit
 
 ## Webhooks and callbacks
-Method: PUT
 You can set up a webhook to get updates of deliveries status changes.
 In order to so, please login to the system and go to:
 https://members.lionwheel.com/organization/edit?tab=api
@@ -216,7 +215,8 @@ There you will need to provide:
 1. Webhook Url - to which LionWheel will be sending the updates
 2. Statuses - the statuses to which you would like to subscribe
 
-Please note that the structure of the sent request payload will be exactly as the in the delivery creation call above.
+Method: POST
+Payload - json. The structure of the request payload will be exactly as the in the delivery creation call above.
 
 ## Tests and SandBox
 
