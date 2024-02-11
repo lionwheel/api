@@ -207,6 +207,19 @@ Field name | type | description
 driver_id | integer | driver that is assigned on the visit
 visit_at | date | date of the visit
 
+## List Routes
+### The request
+Method: GET
+
+Url: https://members.lionwheel.com/api/v1/routes?key=XXXXXX
+
+Payload - query string
+
+Field name | type | description
+------------ | ------------- | -------------
+date | date | could be any date, if blank it will consider today's date
+format | string | could be json OR xml, default would be json
+
 ## Webhooks and callbacks
 You can set up a webhook to get updates of deliveries status changes.
 In order to so, please login to the system and go to:
