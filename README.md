@@ -52,6 +52,7 @@ Field name | type | description
 ------------ | ------------- | -------------
 **pickup_at** | Date | delivery date (defaults to the current day)
 company_id | integer | the company id to which the task should be associated
+company | json | provided if you need to create new company or assign delivery to existing company by external id. <br> `{ "name": "New company", "external_id": "12345678" }`
 notes | string | general delivery notes
 **original_order_id** | string | id in external system, should be unique
 source_city | string | 
