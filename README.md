@@ -160,6 +160,18 @@ driver_id | integer | driver that is assigned on the task
 pickup_at | date | date of the task
 status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED: 3 <br> CANCELED: 4 <br> ROUNDTRIP_DELIVERED: 5 <br> FAILED: 8
 
+## Add Document
+### The request
+Method: POST
+
+Url: https://members.lionwheel.com/api/v1/tasks/<task_id>/add_document?key=XXXXXX
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+file | string | file encoded to base64
+
 ## Daily route
 ### The request
 Method: GET
