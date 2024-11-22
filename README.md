@@ -238,7 +238,7 @@ format | string | could be json OR xml, default would be json
 ### The request
 Method: GET
 
-Url: https://members.lionwheel.com/api/v1/companies/:id
+Url: https://members.lionwheel.com/api/v1/companies/<company_id>
 
 ### The response
 #### Success
@@ -246,29 +246,29 @@ Status: 200
 
 Payload - json 
 
-Field name | type
------------- | -------------
-cell_phone | string
-default_email | string
-default_phone | string
-default_recipient_name | string
-id | integer
-name | string 
-office_phone | string
-primary_email | string
-location | json
-location[id] | integer
-location[apartment] | string
-location[city] | string
-location[country] | string
-location[floor] | string
-location[latitude] | integer
-location[longitude] | integer
-location[name] | string
-location[number] | string
-location[state] | string
-location[street] | string
-location[zip_code] | string
+Field name | type | description
+------------ | ------------- | -------------
+id | integer | Company ID
+name | string | Company Name
+cell_phone | string | Cell phone number
+default_email | string | Default email
+default_phone | string | Defailt phone number
+default_recipient_name | string | Default contact name
+office_phone | string | Office phone number
+primary_email | string | Primary email
+location | json | Location JSON object for company's default location
+location[id] | integer | Location ID
+location[apartment] | string |
+location[city] | string |
+location[country] | string |
+location[floor] | string |
+location[latitude] | integer |
+location[longitude] | integer |
+location[name] | string |
+location[number] | string |
+location[state] | string |
+location[street] | string |
+location[zip_code] | string |
 
 ## Webhooks and callbacks
 You can set up a webhook to get updates of deliveries status changes.
