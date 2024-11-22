@@ -234,6 +234,42 @@ Field name | type | description
 date | date | could be any date, if blank it will consider today's date
 format | string | could be json OR xml, default would be json
 
+## Company Details
+### The request
+Method: GET
+
+Url: https://members.lionwheel.com/api/v1/companies/:id
+
+### The response
+#### Success
+Status: 200
+
+Payload - json 
+
+Field name | type
+------------ | -------------
+cell_phone | string
+default_email | string
+default_phone | string
+default_recipient_name | string
+id | integer
+name | string 
+office_phone | string
+primary_email | string
+location | json
+location[id] | integer
+location[apartment] | string
+location[city] | string
+location[country] | string
+location[floor] | string
+location[latitude] | integer
+location[longitude] | integer
+location[name] | string
+location[number] | string
+location[state] | string
+location[street] | string
+location[zip_code] | string
+
 ## Webhooks and callbacks
 You can set up a webhook to get updates of deliveries status changes.
 In order to so, please login to the system and go to:
