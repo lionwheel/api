@@ -270,6 +270,73 @@ location[state] | string |
 location[street] | string |
 location[zip_code] | string |
 
+## Create Company
+### The request
+Method: POST
+
+Url: https://members.lionwheel.com/api/v1/companies?key=XXXXXX
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+name | string | name of the company
+legal_id | string | legal ID
+primary_email | string | primary email
+fax | string |
+office_phone | string | office phone number
+cell_phone | string |
+phone2 | string | alternate phone
+default_earliest_at | time | earliest at (eg: 10:00)
+default_latest_at | time | latest at (eg: 18:00)
+is_active | boolean | active TRUE or FALSE
+default_location_attributes | json | location attributes
+default_location_attributes[name] | string | location name
+default_location_attributes[city] | string |
+default_location_attributes[street] | string |
+default_location_attributes[number] | string |
+default_location_attributes[floor] | string |
+default_location_attributes[apartment] | string |
+default_location_attributes[zip_code] | string |
+default_location_attributes[notes] | string |
+default_location_attributes[default_recipient_name] | string |
+default_location_attributes[default_phone] | string |
+default_location_attributes[default_email] | string |
+
+## Update Company
+### The request
+Method: PATCH
+
+Url: https://members.lionwheel.com/api/v1/companies/<company_id>?key=XXXXXX
+
+Payload - json
+
+Field name | type | description
+------------ | ------------- | -------------
+name | string | name of the company
+legal_id | string | legal ID
+primary_email | string | primary email
+fax | string |
+office_phone | string | office phone number
+cell_phone | string |
+phone2 | string | alternate phone
+default_earliest_at | time | earliest at (eg: 10:00)
+default_latest_at | time | latest at (eg: 18:00)
+is_active | boolean | active TRUE or FALSE
+default_location_attributes | json | location attributes
+default_location_attributes[id] | ID | default location ID OR leave blank to create a new default location
+default_location_attributes[name] | string | location name
+default_location_attributes[city] | string |
+default_location_attributes[street] | string |
+default_location_attributes[number] | string |
+default_location_attributes[floor] | string |
+default_location_attributes[apartment] | string |
+default_location_attributes[zip_code] | string |
+default_location_attributes[notes] | string |
+default_location_attributes[default_recipient_name] | string |
+default_location_attributes[default_phone] | string |
+default_location_attributes[default_email] | string |
+
 ## Webhooks and callbacks
 You can set up a webhook to get updates of deliveries status changes.
 In order to so, please login to the system and go to:
