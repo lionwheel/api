@@ -238,7 +238,7 @@ format | string | could be json OR xml, default would be json
 ### The request
 Method: GET
 
-Url: https://members.lionwheel.com/api/v1/companies/<company_id>
+Url: https://members.lionwheel.com/api/v1/companies/<company_id>?key=<org_key>
 
 ### The response
 #### Success
