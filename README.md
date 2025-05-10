@@ -1,3 +1,4 @@
+![PhoneSystemToastIcon contrast-white](https://github.com/user-attachments/assets/15a6a6b3-1ff6-48ee-bb83-af805dc3e566)
 # API Documentation
 ## LionWheel enables developers and publishers to easily and efficiently interface through the API!
 
