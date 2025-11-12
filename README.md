@@ -163,7 +163,7 @@ status | integer | UNASSIGNED: 0 <br> ASSIGNED: 1 <br> ACTIVE: 2 <br> COMPLETED:
 ## Get tasks by Order ID
 Method: GET
 
-Url: https://members.lionwheel.com/api/v1/tasks/by_order_id/&lt;order_id&gt;?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/tasks/by_order_id/:order_id?key=XXXXXX
 
 Path parameter | type | description
 -------------- | ---- | -----------
@@ -173,7 +173,7 @@ order_id | string | The external order ID to search for
 ## Get tasks by Phone
 Method: GET
 
-Url: https://members.lionwheel.com/api/v1/tasks/by_phone/&lt;phone&gt;?key=XXXXXX
+Url: https://members.lionwheel.com/api/v1/tasks/by_phone/:phone?key=XXXXXX
 
 Path parameter | type | description
 -------------- | ---- | -----------
