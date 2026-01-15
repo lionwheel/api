@@ -100,6 +100,7 @@ line_items | json | Json of the content of the task <br> Supported fields: <br> 
 urgency | integer | REGULAR: 0 <br> URGENT: 1 <br> SUPER_URGENT: 2
 driver_id | integer | assigned driver
 wait_time | integer | Service time at the destination (minutes)
+documents | array | Array of the json objects <br> Example: <br> `[{"filename":"example.pdf","file":"Base64 encoded string"}]` <br> Supported file types: <br> PDF <br> PNG <br> JPEG
 
 
 ### The response
