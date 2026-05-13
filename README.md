@@ -90,7 +90,7 @@ is_roundtrip | boolean |
 packages_quantity | integer | 
 pallets_quantity | integer |
 money_collect | integer | amount in cents, $3 should be 300
-cod_type | integer | Money collect type <br> Cash: 0 <br> Cheque: 1
+cod_type | integer | Money collect type <br> Cash: 0 <br> Cheque: 1 <br> Card: 2 <br> Bank Transfer: 3
 is_self_pickup | boolean
 age_verification | boolean
 leave_next_to_door | boolean
