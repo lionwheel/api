@@ -26,21 +26,9 @@ LionWheel provides two types of API keys. Both use the same `key` query paramete
 | | Organization API Key | Company API Key |
 |---|---|---|
 | **Who uses it** | The shipping company (organization) managing deliveries | A customer (company) of the shipping company |
-| **Key format** | UUID (no prefix) | Always starts with `c_key_` |
+| **Key format** | UUID (no prefix)<br>Sample: `a512cc96-2f02-491e-b1cf-6f2420ba956d` | Always starts with `c_key_`<br>Sample: `c_key_a512cc96-2f02-491e-b1cf-6f2420ba956d` |
 | **Scope** | Full organization access — manage all companies, drivers, routes, and tasks | Scoped to a single company — tasks are automatically associated with that company |
 | **`company_id` on create** | Required when the organization has companies enabled | Not required — the company is inferred from the key |
-
-**Sample Organization API key:**
-
-```
-a512cc96-2f02-491e-b1cf-6f2420ba956d
-```
-
-**Sample Company API key:**
-
-```
-c_key_a512cc96-2f02-491e-b1cf-6f2420ba956d
-```
 
 **Example request:**
 
@@ -75,7 +63,7 @@ https://members.lionwheel.com/api/v1/tasks/show/12345?key=YOUR_API_KEY
 |---|---|---|
 | **401** | `API Key is missing` | `key` query parameter is blank |
 | **401** | `API Key is wrong` | Key does not match any organization or company |
-| **401** | `Username or Password is incorrect` | Organization or company account is inactive |
+| **401** | `Account is inactive` | Organization or company account is inactive |
 | **403** | `Authorization error` (or endpoint-specific message) | Authenticated key does not have permission to access the resource |
 | **415** | `Content-Type must be application/json` | POST/PUT body endpoints called without `Content-Type: application/json` |
 
@@ -134,12 +122,12 @@ Payload — JSON. Fields in **bold** are mandatory.
 | Parameter | Type | Allowed Key | Description |
 |---|---|---|---|
 | **key** | string | Both | API key (query parameter) |
-| **original_order_id** | string | Both | ID in external system. Should be unique per company |
+| original_order_id | string | Both | ID in external system. Should be unique per company, unless **Organization settings → Advanced → Allow import tasks with the same Order Id** is enabled |
 | **destination_city** | string | Both | Destination city |
-| **destination_street** | string | Both | Destination street |
-| **destination_number** | string | Both | Destination house/building number |
-| **destination_recipient_name** | string | Both | Recipient name at destination |
-| **destination_phone** | string | Both | Recipient phone at destination |
+| destination_street | string | Both | Destination street |
+| destination_number | string | Both | Destination house/building number |
+| destination_recipient_name | string | Both | Recipient name at destination |
+| destination_phone | string | Both | Recipient phone at destination |
 | pickup_at | date | Both | Delivery date (defaults to current day) |
 | company_id | integer | Org only | Company ID to associate the task with. **Required** when using an Organization API key and the organization has companies enabled |
 | company | json | Org only | Create or match a company by external ID. Example: `{ "name": "New company", "external_id": "12345678", "recipient_name": "...", "phone": "...", "email": "..." }` |
@@ -191,8 +179,8 @@ Payload — JSON. Fields in **bold** are mandatory.
 | urgency | integer/string | Both | `REGULAR` (0), `URGENT` (1), `SUPER_URGENT` (2). Default: `REGULAR` |
 | driver_id | integer | Org only | Assign a driver by ID |
 | external_driver_id | string | Org only | Assign a driver by external ID (Company key: only available for specific company configurations) |
-| driver | json | Both | Find or create a driver. Fields: `external_id`, `name` |
-| documents | array | Org only | Attach documents at creation. Requires organization documents module. Each item: `{ "filename": "example.pdf", "file": "<Base64>" }`. Supported types: PDF, PNG, JPEG |
+| driver | json | Org only | Find or create a driver. Fields: `external_id`, `name` |
+| documents | array | Both | Attach documents at creation. Requires organization documents module. Each item: `{ "filename": "example.pdf", "file": "<Base64>" }`. Supported types: PDF, PNG, JPEG |
 | self_pickup_point_uuid | string | Both | Self-pickup point UUID |
 | self_pickup_point_external_id | string | Both | Self-pickup point external ID |
 | agent | json | Org only | Agent assignment (requires `allow_agents`). Fields: `external_id`, `name` |
@@ -202,12 +190,12 @@ Payload — JSON. Fields in **bold** are mandatory.
 | packages | array | Both | Package barcodes. Each item: `{ "barcode": "..." }` |
 | volume | integer | Both | Volume |
 | weight | number | Both | Weight |
-| pick_status | string | Both | Pick status |
+| pick_status | string | Org only | Pick status |
 | payment_method | string | Both | Payment method |
 | order_total | string | Both | Order total |
 | document_number | string | Both | Document number |
-| external_route_code | string | Both | External route code |
-| route_code | string | Both | Route code |
+| external_route_code | string | Org only | External route code |
+| route_code | string | Org only | Route code |
 | task_type | string | Both | Task type |
 | other_user | string | Both | Other user reference |
 | origin | string | Both | When set to `make`, sets creation origin to `make` |
@@ -250,7 +238,7 @@ Status: **200**
 | **403** | `Error - company is not active` | Company is inactive |
 | **403** | `Documents module is not supported` | `documents` sent but module disabled |
 | **403** | `Error - Please check driver_id` | Invalid driver |
-| **403** | `Error - Original Order ID already exists` | Duplicate `original_order_id` |
+| **403** | `Error - Original Order ID already exists` | Duplicate `original_order_id`. You can create deliveries with same order id when **Organization settings → Advanced → Allow import tasks with the same Order Id** is enabled |
 | **403** | `Error - Self Pickup Point not found` | Invalid self-pickup point |
 | **403** | Company tasks limit exceeded message | Company key, task limit is zero |
 | **415** | `Content-Type must be application/json` | Missing JSON content type |
@@ -350,7 +338,6 @@ Payload — JSON
 | document_number | string | Both | Document number |
 | wp_order_id | string | Both | External order ID |
 | money_collect | integer | Both | COD amount (cents) |
-| creation_origin | string | Both | Creation origin |
 | weight | number | Both | Weight |
 | is_self_pickup | boolean | Both | Self-pickup flag |
 | age_verification | boolean | Both | Age verification |
@@ -382,7 +369,7 @@ Payload — JSON
 | source_phone | string | Both | Source phone |
 | source_phone2 | string | Both | Secondary source phone |
 | source_email | string | Both | Source email |
-| pick_status | string | Both | Pick status |
+| pick_status | string | Org only | Pick status |
 | failure_reason_external_id | string | Both | Failure reason by external ID |
 | line_items | json/array | Both | Updated line items (same structure as create) |
 | packages | array | Both | Package barcodes. Replaces existing packages when provided |
@@ -391,7 +378,7 @@ Payload — JSON
 > **Company key restrictions:**
 > - Update is blocked if the task status does not allow company editing (`allow_company_to_edit`).
 > - Only `CANCELED` status changes are permitted.
-> - `driver_id`, `company_id`, `user_id`, `price`, `fee_cost`, and `driver_note` cannot be changed.
+> - `driver_id`, `company_id`, `user_id`, `price`, `fee_cost`, `driver_note`, and `pick_status` cannot be changed.
 > - Source and destination address fields cannot be changed unless the organization allows company address editing for the task's current status.
 
 ### The response
@@ -410,8 +397,8 @@ Status: **200**
 |---|---|---|
 | **401** | Authentication errors | See [Authentication](#authentication) |
 | **403** | `Not found` | Task does not exist |
-| **403** | `Update not allowed for task status` | Company key, task not editable by company |
-| **403** | `Status change not allowed` | Company key attempting non-`CANCELED` status change |
+| **403** | `Update not allowed for task status - company users cannot edit tasks in the current status` | Company key, task not editable by company for its current status |
+| **403** | `Status change not allowed - company users can only change status to CANCELED` | Company key attempting a status change other than `CANCELED` |
 | **403** | `Error - Please check driver_id` | Invalid driver |
 | **403** | Authorization error | Task belongs to another organization/company |
 | **409** | `Duplicated request` | Identical request sent within 1 second |
@@ -738,7 +725,7 @@ Alternate URL: `https://members.lionwheel.com/api/v1/drivers/index?key=XXXXXX`
 
 | Parameter | Type | Allowed Key | Description |
 |---|---|---|---|
-| **key** | string | Both | API key (query parameter) |
+| **key** | string | Org | API key (query parameter) |
 
 ### The response
 
@@ -748,9 +735,10 @@ Status: **200** — JSON array of all drivers in the organization.
 
 #### Failure
 
-| Status | Message |
-|---|---|
-| **401** | Authentication errors |
+| Status | Message | When |
+|---|---|---|
+| **401** | Authentication errors | See [Authentication](#authentication) |
+| **403** | `Unauthorized access` | Company API key used |
 
 ---
 
@@ -764,9 +752,9 @@ URL: `https://members.lionwheel.com/api/v1/drivers/<driver_id>/daily_route?key=X
 
 | Parameter | Type | Allowed Key | Description |
 |---|---|---|---|
-| **key** | string | Both | API key (query parameter) |
-| driver_id | integer | Both | Driver ID (path parameter) |
-| date | date | Both | Route date (defaults to current day) |
+| **key** | string | Org | API key (query parameter) |
+| driver_id | integer | Org | Driver ID (path parameter) |
+| date | date | Org | Route date (defaults to current day) |
 
 ### The response
 
@@ -779,6 +767,7 @@ Status: **200** — JSON array of visits on the driver's daily route, including 
 | Status | Message | When |
 |---|---|---|
 | **401** | Authentication errors | See [Authentication](#authentication) |
+| **403** | `Unauthorized access` | Company API key used |
 | **403** | `Unauthorized - please check the API Key or driver ID` | Driver not found or belongs to another organization |
 
 ---
@@ -793,9 +782,9 @@ URL: `https://members.lionwheel.com/api/v1/drivers/<driver_id>/optimize_daily_ro
 
 | Parameter | Type | Allowed Key | Description |
 |---|---|---|---|
-| **key** | string | Both | API key (query parameter) |
-| driver_id | integer | Both | Driver ID (path parameter) |
-| date | date | Both | Route date (defaults to current day) |
+| **key** | string | Org | API key (query parameter) |
+| driver_id | integer | Org | Driver ID (path parameter) |
+| date | date | Org | Route date (defaults to current day) |
 
 ### The response
 
@@ -815,6 +804,7 @@ Status: **200**
 | Status | Message | When |
 |---|---|---|
 | **401** | Authentication errors | See [Authentication](#authentication) |
+| **403** | `Unauthorized access` | Company API key used |
 | **403** | `Unauthorized - please check the API Key or driver ID` | Driver not found or belongs to another organization |
 
 ---
@@ -919,7 +909,7 @@ When `format=xml`, the response is XML instead of JSON.
 | Status | Message | When |
 |---|---|---|
 | **401** | Authentication errors | See [Authentication](#authentication) |
-| **403** | Authorization error | Company API key used |
+| **403** | `Unauthorized access` | Company API key used |
 
 ---
 
@@ -933,7 +923,7 @@ URL: `https://members.lionwheel.com/api/v1/self_pickup_points?key=XXXXXX`
 
 | Parameter | Type | Allowed Key | Description |
 |---|---|---|---|
-| **key** | string | Both | API key (query parameter) |
+| **key** | string | Org | API key (query parameter) |
 
 ### The response
 
